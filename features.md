@@ -1,0 +1,5 @@
+For the Nara Chrome extension, I added two features to make the experience feel a bit more uplifting: an encouragement system that shows contextual messages when you check things off, and an inspirational quote overlay at the top for a little extra motivation.
+
+Getting this working came with a few challenges. First, I had to fix some positioning bugs with the original hover circles (they were misaligned and made it hard to test anything). Then I had to spend a lot of time positioning the speech bubble placement so it sat nicely with the background art. The last challenge was redesigning the quote overlay so it didn’t clash with the todo list. I ended up going with a single-line layout and a subtle blur to keep things clean and aligned with the original project's aesthetics.
+
+Overall, these updates make the extension feel more supportive and encouraging, while preserving the original project's character.

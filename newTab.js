@@ -14,6 +14,83 @@ document.addEventListener("DOMContentLoaded", () => {
   // for controlling when hovers are active
   let hoverListeners = [];
 
+  // Quotes array with authors
+  const quotes = [
+    {
+      text: "success is not final, failure is not fatal: it is the courage to continue that counts.",
+      author: "winston churchill"
+    },
+    {
+      text: "i have learned over the years that when one's mind is made up, this diminishes fear.",
+      author: "rosa parks"
+    },
+    {
+      text: "happiness is not something ready made. it comes from your own actions.",
+      author: "dalai lama"
+    },
+    {
+      text: "you miss 100% of the shots you don't take.",
+      author: "wayne gretzky"
+    },
+    {
+      text: "do what you can, with what you have, where you are.",
+      author: "theodore roosevelt"
+    },
+    {
+      text: "believe you can and you're halfway there.",
+      author: "theodore roosevelt"
+    },
+    {
+      text: "it always seems impossible until it's done.",
+      author: "nelson mandela"
+    },
+    {
+      text: "your time is limited, so don't waste it living someone else's life.",
+      author: "steve jobs"
+    },
+    {
+      text: "whether you think you can or you think you can't, you're right.",
+      author: "henry ford"
+    },
+    {
+      text: "the only way to do great work is to love what you do.",
+      author: "steve jobs"
+    },
+    {
+      text: "start where you are. use what you have. do what you can.",
+      author: "arthur ashe"
+    },
+    {
+      text: "if you want to lift yourself up, lift up someone else.",
+      author: "booker t. washington"
+    },
+    {
+      text: "you must be the change you wish to see in the world.",
+      author: "mahatma gandhi"
+    },
+    {
+      text: "try to be a rainbow in someone's cloud.",
+      author: "maya angelou"
+    },
+    {
+      text: "the best way to find yourself is to lose yourself in the service of others.",
+      author: "mahatma gandhi"
+    }
+  ];
+
+  // Function to display a random quote
+  function showRandomQuote() {
+    const quoteText = document.getElementById("quote-text");
+    if (quoteText) {
+      const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+      quoteText.textContent = randomQuote.text;
+      quoteText.setAttribute('data-author', randomQuote.author);
+    }
+  }
+
+  // Show initial quote
+  showRandomQuote();
+
   // Encouragement messages
   const encouragementMessages = [
     "thank you for taking care of yourself!",
