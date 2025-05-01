@@ -487,4 +487,52 @@ input[type="checkbox"]:checked+.task-text {
     text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
     opacity: 0.95;
     animation: welcomeFadeIn 1s ease-out forwards;
-    }
+}
+
+/* Speech Bubble Styles */
+#speech-bubble {
+    position: fixed;
+    top: 45%;
+    left: 75%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 12px 20px;
+    border-radius: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    opacity: 0;
+    transition: all 0.3s ease-in-out;
+    pointer-events: none;
+}
+
+/* Speech bubble tail - point from bottom right */
+#speech-bubble:after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    right: 20px;  /* Position from right side */
+    width: 20px;
+    height: 20px;
+    background-color: rgba(255, 255, 255, 0.95);
+    transform: rotate(45deg); /* Simple 45-degree rotation */
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.05);
+    z-index: -1;
+}
+
+#speech-bubble.visible {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+#speech-bubble:not(.visible) {
+    transform: translate(-50%, -50%) scale(0.9);
+}
+
+#encouragement-message {
+    margin: 0;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 16px;
+    color: #333;
+    text-align: center;
+    white-space: nowrap;
+}

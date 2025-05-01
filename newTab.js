@@ -14,6 +14,51 @@ document.addEventListener("DOMContentLoaded", () => {
   // for controlling when hovers are active
   let hoverListeners = [];
 
+  // Encouragement messages
+  const encouragementMessages = [
+    "thank you for taking care of yourself!",
+    "i'm so proud of you!",
+    "you're doing amazing!",
+    "keep going, friend!",
+    "that's wonderful!",
+    "incredible job!",
+    "you're taking such good care!",
+    "i believe in you!",
+    "you're doing great!",
+  ];
+
+  // Function to show encouragement message
+  function showEncouragement() {
+    const speechBubble = document.getElementById("speech-bubble");
+    const messageElement = document.getElementById("encouragement-message");
+    
+    // Get random message
+    const randomMessage = encouragementMessages[Math.floor(Math.random() * encouragementMessages.length)];
+    messageElement.textContent = randomMessage;
+    
+    // Position the bubble based on viewport size
+    const viewportWidth = window.innerWidth;
+    const viewportHeight = window.innerHeight;
+    
+    // Position relative to the deer in the current scene
+    speechBubble.style.left = `${viewportWidth * 0.65}px`; 
+    speechBubble.style.top = `${viewportHeight * 0.55}px`; 
+    
+    // Show bubble with animation
+    speechBubble.classList.remove("hidden");
+    requestAnimationFrame(() => {
+      speechBubble.classList.add("visible");
+    });
+    
+    // Hide after 4 seconds (increased from 2 seconds)
+    setTimeout(() => {
+      speechBubble.classList.remove("visible");
+      setTimeout(() => {
+        speechBubble.classList.add("hidden");
+      }, 300); // Wait for fade out animation
+    }, 4000);
+  }
+
   // Initial background image with 5 deers
   const initialBackground = "assets/original.jpg";
 
@@ -673,6 +718,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (tasks[originalIndex].completed) {
           const deleteButton = taskItem.querySelector(".delete-task");
           if (deleteButton) deleteButton.remove();
+          showEncouragement(); // Show encouragement when task is completed
         }
 
         let newPosition = 0;
